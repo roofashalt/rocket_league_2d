@@ -9,7 +9,7 @@ canvasElement.appendTo('body');
 var players = [];
 var scoreOrange = 0;
 var scoreBlue = 0;
-var timerCount = 120; // 2 Minute Time Limit
+var timerCount = 500; // 2 Minute Time Limit
 var timerID;
 
 // DRAW
@@ -28,12 +28,12 @@ function draw() {
 // UPDATE
 function update() {
   for(var i=0; i < players.length; i++) {
-    players[i].xMid += (players[i].vel * Math.sin(players[i].rot*Math.PI/180));
-    players[i].yMid += -(players[i].vel * Math.cos(players[i].rot*Math.PI/180));
+    players[i].xMid += (players[i].vel * Math.sin(players[i].rot*Math.PI/180)) * 2;
+    players[i].yMid += -(players[i].vel * Math.cos(players[i].rot*Math.PI/180)) * 2;
   }
 
-  ball.x += ball.velX;
-  ball.y += ball.velY;
+  ball.x += ball.velX * 10;
+  ball.y += ball.velY * 10;
 
   //// DEFINES GOALS AND EDGE OF ARENA
   // input -> goal width
